@@ -89,7 +89,7 @@ const AimTrainer = () => {
         if (!userId) { return; }
         setUserId(userId);
 
-        const response = await axios.get(`https://yourbenchmark.onrender.com/users/${userId}`);
+        const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
         setTestResults(response.data.testResults);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -117,7 +117,7 @@ const AimTrainer = () => {
         avg: newAvg,
       };
 
-      await axios.patch(`http://localhost:5000/users/${userId}`, {
+      await axios.patch(`https://your-benchmark.onrender.com/users/${userId}`, {
         testResults: currentTestResults,
       });
 
