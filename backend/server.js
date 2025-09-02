@@ -14,7 +14,7 @@ connectDB();
 // CORS configuration
 const allowedOrigins = [
   //'https://yourbenchmark.vercel.app', // Your deployed frontend
-  'http://localhost:3000'             // Your local development frontend
+  'https://your-benchmark1.onrender.com'             // Your local development frontend
 ];
 
 const corsOptions = {
