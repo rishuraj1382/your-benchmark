@@ -61,7 +61,7 @@ function VisualMemoryTest() {
         if (!userId) { return; }
         setUserId(userId);
 
-        const response = await axios.get(`http://localhost:5000/users/${userId}`);
+        const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
         setTestResults(response.data.testResults);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -73,7 +73,7 @@ function VisualMemoryTest() {
   const saveTestResults = async () => {
     try {
       // 1. ALWAYS get the latest user data from the server first
-      const response = await axios.get(`http://localhost:5000/users/${userId}`);
+      const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
       const currentTestResults = response.data.testResults || {};
 
       // 2. Update ONLY the data for the specific test you just played
