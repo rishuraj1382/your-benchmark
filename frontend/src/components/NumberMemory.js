@@ -51,7 +51,7 @@ const NumberMemory = () => {
         if (!userId) { return; }
         setUserId(userId);
 
-        const response = await axios.get(`https://yourbenchmark.onrender.com/users/${userId}`);
+        const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
         setTestResults(response.data.testResults);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -63,7 +63,7 @@ const NumberMemory = () => {
   const saveTestResults = async () => {
     try {
       // 1. ALWAYS get the latest user data from the server first
-      const response = await axios.get(`http://localhost:5000/users/${userId}`);
+      const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
       const currentTestResults = response.data.testResults || {};
 
       // 2. Your existing logic for calculating the new score
@@ -85,7 +85,7 @@ const NumberMemory = () => {
       };
 
       // 3. Send the complete, up-to-date object back to the server
-      const updatedUserResponse = await axios.patch(`http://localhost:5000/users/${userId}`, {
+      const updatedUserResponse = await axios.patch(`https://your-benchmark.onrender.com/users/${userId}`, {
         testResults: currentTestResults,
       });
 
