@@ -48,7 +48,7 @@ const SequenceMemory = () => {
 
   const saveTestResults = async (score) => {
     try {
-      const response = await axios.get(`http://localhost:5000/users/${userId}`);
+      const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
       const currentTestResults = response.data.testResults || {};
       const sequenceMemoryData = currentTestResults.sequenceMemory || { noOfTests: 0, total: 0, min: Infinity, max: 0, avg: 0 };
       
@@ -60,7 +60,7 @@ const SequenceMemory = () => {
 
       currentTestResults.sequenceMemory = { noOfTests: newNoOfTests, total: newTotal, min: newMin, max: newMax, avg: newAvg };
 
-      const updatedUserResponse = await axios.patch(`http://localhost:5000/users/${userId}`, { testResults: currentTestResults });
+      const updatedUserResponse = await axios.patch(`https://your-benchmark.onrender.com/users/${userId}`, { testResults: currentTestResults });
       localStorage.setItem('user', JSON.stringify(updatedUserResponse.data));
       console.log('Test results saved successfully');
     } catch (error) {
