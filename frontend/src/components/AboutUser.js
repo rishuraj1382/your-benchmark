@@ -41,7 +41,7 @@ const AboutUser = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5000/users/${userId}`);
+        const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
         setUserResults(response.data);
       } catch (error) {
         setError('Error fetching user data: ' + error.message);
@@ -68,7 +68,7 @@ const AboutUser = () => {
       const parsedUser = JSON.parse(storedUser);
       const userId = parsedUser._id;
 
-      const response = await axios.delete(`http://localhost:5000/users/${userId}`);
+      const response = await axios.delete(`https://your-benchmark.onrender.com/users/${userId}`);
 
       if (response.status === 200) {
         localStorage.removeItem('user');
