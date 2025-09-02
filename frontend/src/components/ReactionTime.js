@@ -95,7 +95,7 @@ const ReactionTime = () => {
         const userId = parsedUser._id;
         setUserId(userId);
 
-        const response = await axios.get(`http://localhost:5000/users/${userId}`);
+        const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
         setTestResults(response.data.testResults);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -106,7 +106,7 @@ const ReactionTime = () => {
 
   const saveTestResults = async (times) => {
     try {
-      const response = await axios.get(`http://localhost:5000/users/${userId}`);
+      const response = await axios.get(`https://your-benchmark.onrender.com/users/${userId}`);
       const currentTestResults = response.data.testResults || {};
 
       const sum = times.reduce((acc, time) => acc + time, 0);
@@ -128,7 +128,7 @@ const ReactionTime = () => {
           avg: newAvg,
       };
 
-      const updatedUserResponse = await axios.patch(`http://localhost:5000/users/${userId}`, {
+      const updatedUserResponse = await axios.patch(`https://your-benchmark.onrender.com/users/${userId}`, {
           testResults: currentTestResults,
       });
 
