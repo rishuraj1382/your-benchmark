@@ -17,7 +17,7 @@ const theme = createTheme({
     },
 });
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://your-benchmark.onrender.com';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
